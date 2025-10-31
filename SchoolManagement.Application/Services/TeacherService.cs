@@ -1,32 +1,61 @@
 using SchoolManagement.Application.Interfaces;
 using SchoolManagement.Domain.Entities;
+using SchoolManagement.Domain.Interfaces;
 
 namespace SchoolManagement.Application.Services;
 
 public class TeacherService : ITeacherService
 {
-    public Task<IEnumerable<Teacher>> GetAllAsync()
+    private readonly ITeacherRepository _teacherRepository;
+
+    public TeacherService(ITeacherRepository teacherRepository)
     {
-        throw new NotImplementedException();
+        _teacherRepository = teacherRepository;
+    }
+    public async Task<IEnumerable<Teacher>> GetAllAsync()
+    {
+        return await _teacherRepository.GetAllAsync();
     }
 
-    public Task<Teacher?> GetByIdAsync(int id)
+    public async Task<Teacher?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        if (id <= 0)
+            throw new ArgumentException("ID inválido.");
+        
+        var existing = await _teacherRepository.GetByIdAsync(id);
+        if (existing == null)
+            throw new InvalidOperationException("El profesor no existe.");
+
+        return await _teacherRepository.GetByIdAsync(id);
     }
 
-    public Task AddAsync(Teacher teacher)
+    public async Task AddAsync(Teacher teacher)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrWhiteSpace(teacher.Name))
+            throw new ArgumentException("El nombre es obligatorio.");
+        if (string.IsNullOrWhiteSpace(teacher.LastName))
+            throw new ArgumentException("El apellido es obligatorio");
+        if (string.IsNullOrWhiteSpace(teacher.Specialization))
+            throw new ArgumentException("La especialización es obligatoria.");
+        
+        await _teacherRepository.AddAsync(teacher);
     }
 
-    public Task UpdateAsync(Teacher teacher)
+    public async Task UpdateAsync(Teacher teacher)
     {
-        throw new NotImplementedException();
+        var existing = await _teacherRepository.GetByIdAsync(teacher.Id);
+        if (existing == null)
+            throw new InvalidOperationException("El profesor no existe.");
+
+        await _teacherRepository.UpdateAsync(teacher);
     }
 
-    public Task DeleteAsync(Teacher teacher)
+    public async Task DeleteAsync(Teacher teacher)
     {
-        throw new NotImplementedException();
+        var existing = await _teacherRepository.GetByIdAsync(teacher.Id);
+        if (existing == null)
+            throw new InvalidOperationException("El estudiante no existe.");
+        
+        await _teacherRepository.DeleteAsync(teacher);
     }
 }

@@ -1,32 +1,60 @@
 using SchoolManagement.Application.Interfaces;
 using SchoolManagement.Domain.Entities;
+using SchoolManagement.Domain.Interfaces;
 
 namespace SchoolManagement.Application.Services;
 
 public class StudentService : IStudentService
 {
-    public Task<IEnumerable<Student>> GetAllAsync()
+    private readonly IStudentRepository _studentRepository;
+    public StudentService(IStudentRepository studentRepository)
     {
-        throw new NotImplementedException();
+        _studentRepository = studentRepository;
+    }
+    public async Task<IEnumerable<Student>> GetAllAsync()
+    {
+        return await _studentRepository.GetAllAsync();
     }
 
-    public Task<Student?> GetByIdAsync(int id)
+    public async Task<Student?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        if (id <= 0)
+            throw new ArgumentException("ID inválido.");
+        
+        var existing = await _studentRepository.GetByIdAsync(id);
+        if (existing == null)
+            throw new InvalidOperationException("El estudiante no existe.");
+
+        return await _studentRepository.GetByIdAsync(id);
     }
 
-    public Task AddAsync(Student student)
+    public async Task AddAsync(Student student)
     {
-        throw new NotImplementedException();
+        if (string.IsNullOrWhiteSpace(student.Name))
+            throw new ArgumentException("El nombre es obligatorio.");
+        if (string.IsNullOrWhiteSpace(student.LastName))
+            throw new ArgumentException("El apellido es obligatorio");
+        if (string.IsNullOrWhiteSpace(student.Email))
+            throw new ArgumentException("El email es obligatorio.");
+
+        await _studentRepository.AddAsync(student);
     }
 
-    public Task UpdateAsync(Student student)
+    public async Task UpdateAsync(Student student)
     {
-        throw new NotImplementedException();
+        var existing = await _studentRepository.GetByIdAsync(student.Id);
+        if (existing == null)
+            throw new InvalidOperationException("El estudiante no existe.");
+
+        await _studentRepository.UpdateAsync(student);
     }
 
-    public Task DeleteAsync(Student student)
+    public async Task DeleteAsync(Student student)
     {
-        throw new NotImplementedException();
+        var existing = await _studentRepository.GetByIdAsync(student.Id);
+        if (existing == null)
+            throw new InvalidOperationException("El estudiante no existe.");
+        
+        await _studentRepository.DeleteAsync(student);
     }
 }

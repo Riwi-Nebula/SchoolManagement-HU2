@@ -1,32 +1,42 @@
+using Microsoft.EntityFrameworkCore;
 using SchoolManagement.Domain.Entities;
 using SchoolManagement.Domain.Interfaces;
+using SchoolManagement.Infraestructure.Data;
 
 namespace SchoolManagement.Infraestructure.Repositories;
 
 public class StudentRepository : IStudentRepository
 {
-    public Task<IEnumerable<Student>> GetAllAsync()
+    private readonly AppDbContext _dbContext;
+    public StudentRepository(AppDbContext dbContext)
     {
-        throw new NotImplementedException();
+        _dbContext = dbContext;
+    }
+    public async Task<IEnumerable<Student>> GetAllAsync()
+    {
+        return await _dbContext.Students.ToListAsync();
     }
 
-    public Task<Student?> GetByIdAsync(int id)
+    public async Task<Student?> GetByIdAsync(int id)
     {
-        throw new NotImplementedException();
+        return await _dbContext.Students.FindAsync(id);
     }
 
-    public Task AddAsync(Student student)
+    public async Task AddAsync(Student student)
     {
-        throw new NotImplementedException();
+        _dbContext.Students.Add(student);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task UpdateAsync(Student student)
+    public async Task UpdateAsync(Student student)
     {
-        throw new NotImplementedException();
+        _dbContext.Students.Update(student);
+        await _dbContext.SaveChangesAsync();
     }
 
-    public Task DeleteAsync(Student student)
+    public async Task DeleteAsync(Student student)
     {
-        throw new NotImplementedException();
+        _dbContext.Students.Remove(student);
+        await _dbContext.SaveChangesAsync();
     }
 }

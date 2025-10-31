@@ -1,5 +1,6 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using SchoolManagement.Application.Interfaces;
 using SchoolManagement.Application.Services;
 using SchoolManagement.Domain.Interfaces;
 using SchoolManagement.Infraestructure.Data;
@@ -26,10 +27,14 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Repositorios
 //Ejemplo:
 //builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>(); //Student
+builder.Services.AddScoped<ITeacherRepository, TeacherRepository>(); //Teacher
 
 // Servicios de aplicación
 //Ejemplo:
 //builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<IStudentService, StudentService>(); //Student
+builder.Services.AddScoped<ITeacherService, TeacherService>(); //Teacher
 
 
 // =======================================================

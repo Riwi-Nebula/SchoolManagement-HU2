@@ -5,6 +5,8 @@ using SchoolManagement.Domain.Interfaces;
 using SchoolManagement.Infraestructure.Data;
 using SchoolManagement.Infraestructure.Repositories;
 
+//using SchoolManagement.Infraestructure.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // =======================================================
@@ -26,6 +28,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Repositorios
 //Ejemplo:
 //builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
+builder.Services.AddScoped<ISectionRepository, SectionRepository>();
+builder.Services.AddScoped<SectionService>();
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<CourseService>();
 
 // Servicios de aplicación
 //Ejemplo:

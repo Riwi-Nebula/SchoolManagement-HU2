@@ -1,6 +1,6 @@
 using SchoolManagement.Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-
+using SchoolManagement.Domain.Entities;
 namespace SchoolManagement.Infraestructure.Data;
 
 public class AppDbContext : DbContext
@@ -21,4 +21,6 @@ public class AppDbContext : DbContext
     }
     
     //Aca agregan las entidades con las que se van a crear las tablas
+    public DbSet<Enrollment> Enrollments { get; set; } = null!;
+    public DbSet<Grade> Grades { get; set; } = null!;
 }

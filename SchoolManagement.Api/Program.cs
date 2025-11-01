@@ -5,6 +5,7 @@ using SchoolManagement.Domain.Interfaces;
 using SchoolManagement.Infraestructure.Data;
 using SchoolManagement.Infraestructure.Repositories;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // =======================================================
@@ -26,11 +27,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Repositorios
 //Ejemplo:
 //builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-
+builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
 // Servicios de aplicación
 //Ejemplo:
 //builder.Services.AddScoped<StudentService>();
-
+builder.Services.AddScoped<EnrollmentService>();
+builder.Services.AddScoped<GradeService>();
 
 // =======================================================
 // 3. Controladores y Swagger

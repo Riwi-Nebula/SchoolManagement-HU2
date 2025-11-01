@@ -28,7 +28,7 @@ public class GradeService
 
         if (existingGrade != null)
         {
-            existingGrade.Score = score;
+            existingGrade.score = score;
             _gradeRepository.Update(existingGrade);
             await _gradeRepository.SaveChangesAsync();
             return existingGrade;
@@ -44,8 +44,8 @@ public class GradeService
 
             var newGrade = new Grade
             {
-                EnrollmentId = enrollmentId,
-                Score = score,
+                IncriptionId = enrollmentId,
+                score = score,
                 RegistrationDate = DateTime.UtcNow
             };
 

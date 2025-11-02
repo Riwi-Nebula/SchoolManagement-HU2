@@ -15,7 +15,7 @@ public class CourseRepository : ICourseRepository
     
     public async Task<IEnumerable<Course>> GetAllCoursesAsync() => await _course.Courses
         .Include(c => c.Sections).ToListAsync();
-        //.Include(c => c.Professor).ToListAsync();  Descomentar para unirlo a Professor (se sustituye la linea de arriba por esta)
+        //.Include(c => c.Teacher).ToListAsync();  Descomentar para unirlo a Professor (se sustituye la linea de arriba por esta)
     
 
     public async Task<Course> GetCourseByIdAsync(int id) => await _course.Courses

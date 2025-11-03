@@ -7,9 +7,6 @@ namespace SchoolManagement.Infraestructure.Data;
 public class AppDbContext : DbContext
 {
     public AppDbContext(DbContextOptions<AppDbContext> options) : base(options){}
-    public DbSet<Course>  Courses { get; set; }
-    public DbSet<Section>  Sections { get; set; }
-    
     
     //Metodo protegido para definir pruebas adicionales o configuraciones
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,4 +22,6 @@ public class AppDbContext : DbContext
     //Aca agregan las entidades con las que se van a crear las tablas
     public DbSet<Student> Students { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
+    public DbSet<Course> Courses { get; set; }
+    public DbSet<Section> Sections { get; set; }
 }

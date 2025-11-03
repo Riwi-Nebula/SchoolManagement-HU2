@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.Domain", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.Infraestructure", "SchoolManagement.Infraestructure\SchoolManagement.Infraestructure.csproj", "{4E8B1B5A-A64D-4750-9850-1E5E242D6A8E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SchoolManagement.Tests", "SchoolManagement.Tests\SchoolManagement.Tests.csproj", "{103E9F0F-7FD7-49DB-B9CD-B002752D6D80}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{4E8B1B5A-A64D-4750-9850-1E5E242D6A8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E8B1B5A-A64D-4750-9850-1E5E242D6A8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E8B1B5A-A64D-4750-9850-1E5E242D6A8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{103E9F0F-7FD7-49DB-B9CD-B002752D6D80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{103E9F0F-7FD7-49DB-B9CD-B002752D6D80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{103E9F0F-7FD7-49DB-B9CD-B002752D6D80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{103E9F0F-7FD7-49DB-B9CD-B002752D6D80}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

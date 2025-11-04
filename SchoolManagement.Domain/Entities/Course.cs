@@ -8,8 +8,8 @@ public class Course
     
     //Relacion 1-N (profesor puede tener muchos cursos)
     
-    //public int ProfessorId { get; set; }      ==>Descomentar para unirlo a Professor
-    //public Professor Professor { get; set; }   ==>Descomentar para unirlo a Professor
+    //public int TeacherId { get; set; }      ==>Descomentar para unirlo a Professor
+    //public Teacher Teacher { get; set; }   ==>Descomentar para unirlo a Professor
     
     //Relacion 1-N (curso puede tener muchas secciones)
     public ICollection<Section>? Sections { get; set; }

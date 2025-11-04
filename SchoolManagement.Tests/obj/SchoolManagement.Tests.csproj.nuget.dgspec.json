@@ -1,0 +1,382 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Tests/SchoolManagement.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Api/SchoolManagement.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Api/SchoolManagement.Api.csproj",
+        "projectName": "SchoolManagement.Api",
+        "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Api/SchoolManagement.Api.csproj",
+        "packagesPath": "/home/faragon/.nuget/packages/",
+        "outputPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/faragon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/SchoolManagement.Application.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/SchoolManagement.Application.csproj"
+              },
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[8.0.21, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[6.6.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/SchoolManagement.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/SchoolManagement.Application.csproj",
+        "projectName": "SchoolManagement.Application",
+        "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/SchoolManagement.Application.csproj",
+        "packagesPath": "/home/faragon/.nuget/packages/",
+        "outputPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/faragon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj",
+        "projectName": "SchoolManagement.Domain",
+        "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj",
+        "packagesPath": "/home/faragon/.nuget/packages/",
+        "outputPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/faragon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj",
+        "projectName": "SchoolManagement.Infraestructure",
+        "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj",
+        "packagesPath": "/home/faragon/.nuget/packages/",
+        "outputPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/faragon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[9.0.9, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql": {
+              "target": "Package",
+              "version": "[9.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Tests/SchoolManagement.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Tests/SchoolManagement.Tests.csproj",
+        "projectName": "SchoolManagement.Tests",
+        "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Tests/SchoolManagement.Tests.csproj",
+        "packagesPath": "/home/faragon/.nuget/packages/",
+        "outputPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/faragon/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Api/SchoolManagement.Api.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Api/SchoolManagement.Api.csproj"
+              },
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/SchoolManagement.Application.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Application/SchoolManagement.Application.csproj"
+              },
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Domain/SchoolManagement.Domain.csproj"
+              },
+              "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj": {
+                "projectPath": "/home/faragon/Desktop/Repos/SchoolManagement-HU2/SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[8.8.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Testing": {
+              "target": "Package",
+              "version": "[8.0.10, )"
+            },
+            "Microsoft.EntityFrameworkCore.InMemory": {
+              "target": "Package",
+              "version": "[9.0.10, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[18.0.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.4, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/8.0.121/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

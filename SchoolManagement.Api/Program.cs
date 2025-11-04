@@ -1,10 +1,12 @@
 using Microsoft.OpenApi.Models;
 using Microsoft.EntityFrameworkCore;
+using SchoolManagement.Application.Interfaces;
 using SchoolManagement.Application.Services;
 using SchoolManagement.Domain.Interfaces;
 using SchoolManagement.Infraestructure.Data;
 using SchoolManagement.Infraestructure.Repositories;
 
+//using SchoolManagement.Infraestructure.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -34,6 +36,21 @@ builder.Services.AddScoped<IGradeRepository, GradeRepository>();
 //builder.Services.AddScoped<StudentService>();
 builder.Services.AddScoped<EnrollmentService>();
 builder.Services.AddScoped<GradeService>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>(); //Student
+builder.Services.AddScoped<ITeacherRepository, TeacherRepository>(); //Teacher
+
+builder.Services.AddScoped<ISectionRepository, SectionRepository>();
+builder.Services.AddScoped<SectionService>();
+
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+builder.Services.AddScoped<CourseService>();
+
+// Servicios de aplicación
+//Ejemplo:
+//builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<IStudentService, StudentService>(); //Student
+builder.Services.AddScoped<ITeacherService, TeacherService>(); //Teacher
+
 
 // =======================================================
 // 3. Controladores y Swagger
@@ -71,4 +88,6 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();
+
+public partial class Program { }
 

@@ -80,16 +80,72 @@ tambien se hicieron pruebas bacicas con Xunit
 
 ```
 ## Diagramas:
-Casos de uso:
+### Casos de uso:
 ![alt text](casos-uso-HU2.png)
 
-Diagrama de clases:
+### Diagrama de clases:
 ![alt text](class-diagram.png)
 
-Diagrama de referencias:
+### Diagrama de referencias:
 ![alt text](diagrama-referencias.png)
 
 ## Roles:
 [text](.idea/EVALUACION.md)
 
 ## Como ejecutar el proyecto:
+
+### Opcion 1 Ejecucion local:
+
+1. **Clonar el repositorio:**
+```bash 
+git clone https://github.com/Riwi-Nebula/SchoolManagement-HU2.git
+```
+*Abrir la carpeta del repositorio*
+
+1. **Restaurar dependencias:**
+```bash
+dotnet restore
+```
+2. **Compilar la solucion:**
+```bash
+dotnet build
+```
+3. **Ejecutar el proyecto:**
+```bash
+#Entrar al el proyecto de la api
+cd SchoolManagement.Api
+dotnet run
+```
+4. **Probar la Url:**
+probar la url en postman o navegador: `http://localhost:5000/api`
+usar **Swagger** para probar la url y los endpoints: `http://localhost:5000/swagger`
+
+### Opcion 2 Ejecucion con Docker:
+
+1. **Clonar el repositorio:**
+```bash 
+git clone https://github.com/Riwi-Nebula/SchoolManagement-HU2.git
+```
+*Abrir la carpeta del repositorio*
+
+1. **Construir la imagen:**
+```bash
+docker build -t schoolmanagement-api:dev -f SchoolManagement.Api/Dockerfile .
+```
+2. **Levantar los servcios definidos en Docker Compose:**
+```bash
+docker-compose up -d
+```
+3. **Verificar que el contenedor este corriendo:**
+```bash
+docker ps
+```
+4. **Probar la Url**
+probar la url en postman o navegador: `http://localhost:3306/api`
+usar **Swagger** para probar la url y los endpoints: `http://localhost:3306/swagger`
+
+## Como ejecutar las pruebas:
+En la carpeta principal (donde esta el archivo **.sln**) habre la terminal y ejecuta este comando:
+```bash
+dotnet test
+```

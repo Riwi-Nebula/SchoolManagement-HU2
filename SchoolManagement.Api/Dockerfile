@@ -1,41 +1,26 @@
-# -------------------------------
-# ---- Build stage (compila la app)
-# -------------------------------
-FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-WORKDIR /src
-
-# Copiar los archivos de proyecto primero (para aprovechar la caché)
-COPY ["SchoolManagement.Api/SchoolManagement.Api.csproj", "SchoolManagement.Api/"]
-COPY ["SchoolManagement.Application/SchoolManagement.Application.csproj", "SchoolManagement.Application/"]
-COPY ["SchoolManagement.Domain/SchoolManagement.Domain.csproj", "SchoolManagement.Domain/"]
-COPY ["SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj", "SchoolManagement.Infraestructure/"]
-
-# Restaurar dependencias
-RUN dotnet restore "SchoolManagement.Api/SchoolManagement.Api.csproj"
-
-# Copiar todo el código fuente
-COPY . .
-
-# Publicar el proyecto
-WORKDIR /src/SchoolManagement.Api
-RUN dotnet publish "SchoolManagement.Api.csproj" -c Release -o /app/publish --no-restore
-
-
-# -------------------------------
-# ---- Runtime stage (ejecuta la app)
-# -------------------------------
-FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS runtime
+﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
+USER $APP_UID
 WORKDIR /app
+EXPOSE 8080
+EXPOSE 8081
 
-# Variables de entorno recomendadas
-ENV ASPNETCORE_URLS=http://+:80
-ENV DOTNET_RUNNING_IN_CONTAINER=true
+FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+ARG BUILD_CONFIGURATION=Release
+WORKDIR /src
+COPY ["SchoolManagement.Api/SchoolManagement.Api.csproj", "SchoolManagement.Api/"]
+COPY ["SchoolManagement.Domain/SchoolManagement.Domain.csproj", "SchoolManagement.Domain/"]
+COPY ["SchoolManagement.Application/SchoolManagement.Application.csproj", "SchoolManagement.Application/"]
+COPY ["SchoolManagement.Infraestructure/SchoolManagement.Infraestructure.csproj", "SchoolManagement.Infraestructure/"]
+RUN dotnet restore "SchoolManagement.Api/SchoolManagement.Api.csproj"
+COPY . .
+WORKDIR "/src/SchoolManagement.Api"
+RUN dotnet build "./SchoolManagement.Api.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
-# Copiar la app publicada
-COPY --from=build /app/publish .
+FROM build AS publish
+ARG BUILD_CONFIGURATION=Release
+RUN dotnet publish "./SchoolManagement.Api.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
-# Exponer el puerto 80 para HTTP
-EXPOSE 80
-
-# Punto de entrada
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "SchoolManagement.Api.dll"]

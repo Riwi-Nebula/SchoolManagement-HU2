@@ -29,6 +29,13 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // Repositorios
 //Ejemplo:
 //builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+builder.Services.AddScoped<IEnrollmentRepository, EnrollmentRepository>();
+builder.Services.AddScoped<IGradeRepository, GradeRepository>();
+// Servicios de aplicación
+//Ejemplo:
+//builder.Services.AddScoped<StudentService>();
+builder.Services.AddScoped<EnrollmentService>();
+builder.Services.AddScoped<GradeService>();
 builder.Services.AddScoped<IStudentRepository, StudentRepository>(); //Student
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>(); //Teacher
 

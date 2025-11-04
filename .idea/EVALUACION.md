@@ -1,0 +1,4 @@
+- PO/Desarrollador (Sarah Orianna Perez)
+- SM/Desarrollador (Luisa  Rondon)
+- Desarrolador (Jhos Kevin Agudelo Moreno)
+- QA/Desarrollador (Miguel Angel Angarita)

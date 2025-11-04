@@ -20,6 +20,8 @@ public class AppDbContext : DbContext
     }
     
     //Aca agregan las entidades con las que se van a crear las tablas
+    public DbSet<Enrollment> Enrollments { get; set; } = null!;
+    public DbSet<Grade> Grades { get; set; } = null!;
     public DbSet<Student> Students { get; set; }
     public DbSet<Teacher> Teachers { get; set; }
     public DbSet<Course> Courses { get; set; }
